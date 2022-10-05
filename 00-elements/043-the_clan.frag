@@ -25,6 +25,8 @@ uniform vec2 u_resolution;
 #include "../lib/vesicaSDF.glsl"
 #include "../lib/bridge.glsl"
 
+const float n = 3.;
+
 void main() {
     vec3 color = vec3(0.);
     vec2 st = gl_FragCoord.xy/u_resolution;
@@ -33,7 +35,7 @@ void main() {
              vec2(st.x,st.y*(u_resolution.y/u_resolution.x)-(u_resolution.y*.5-u_resolution.x*.5)/u_resolution.x), 
              step(u_resolution.x,u_resolution.y));
     //START
-    float n = 3.;
+    // float n = 3.;
     float a = TAU/n;
     for (float i = 0.; i < n*2.; i++) {
         vec2 xy = rotate(st,a*i);

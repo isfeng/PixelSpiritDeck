@@ -29,6 +29,8 @@ uniform vec2 u_resolution;
 #include "../lib/scale.glsl"
 //GLOBAL_END
 
+const float n = 8.;
+
 void main() {
     vec3 color = vec3(0.);
     vec2 st = gl_FragCoord.xy/u_resolution;
@@ -40,7 +42,7 @@ void main() {
     //START
     float star = starSDF(st,8,.063);
     color += fill(star,1.22);
-    float n = 8.;
+    // float n = 8.;
     float a = TAU/n;
     for (float i = 0.; i < n; i++) {
         vec2 xy = rotate(st,0.39+a*i);
